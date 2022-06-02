@@ -10,20 +10,19 @@ import java.util.List;
 
         public static void main(String[] args) throws Exception {
             System.out.println("Калькулятор умеет выполнять операции сложения, вычитания, умножения и деления с двумя арабскими или римскими числами от 1 до 10: a + b, a - b, a * b, a / b.");
-            String[] rom = new String[] {"I","II","III","IV","V","VI","VII","VIII","IX","X"};
-            String[] arab = new String[] {"1","2","3","4","5","6","7","8","9","10"};
+            String[] rom = new String[]{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+            String[] arab = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
             Scanner scanner = new Scanner(System.in);
             String sar = scanner.nextLine();
-
             String[] arr = sar.split(" ");
             String a1 = arr[0];
             String a2 = arr[1];
             String a3 = arr[2];
 
-            if (Arrays.asList(arab).contains(a1) && Arrays.asList(rom).contains(a3) || Arrays.asList(rom).contains(a1) && Arrays.asList(arab).contains(a3) ) {
+            if (Arrays.asList(arab).contains(a1) && Arrays.asList(rom).contains(a3) || Arrays.asList(rom).contains(a1) && Arrays.asList(arab).contains(a3)) {
                 throw new Exception("throws Exception //т.к. используются одновременно разные системы счисления");
             }
-            if(Arrays.asList(rom).contains(a1) && Arrays.asList(rom).contains(a3))  {
+            if (Arrays.asList(rom).contains(a1) && Arrays.asList(rom).contains(a3)) {
                 String as = romanToNumber(a1);
                 String ass = romanToNumber(a3);
                 int aa = Integer.parseInt(as);
@@ -33,23 +32,24 @@ import java.util.List;
                     result2 = aa + an1;
                 } else if (a2.equals("-")) {
                     result2 = aa - an1;
-                    if (result2 < 1 ) throw new Exception("В римской системе нет отрицательных чисел");
+                    if (result2 < 1) throw new Exception("В римской системе нет отрицательных чисел");
                 } else if (a2.equals("*")) {
                     result2 = aa * an1;
                 } else if (a2.equals("/")) {
                     result2 = aa / an1;
-                    if (result2 < 1 ) throw new Exception("В римской системе нет отрицательных чисел");
+                    if (result2 < 1) throw new Exception("В римской системе нет отрицательных чисел");
                 }
                 String sa = String.valueOf(result2);
                 System.out.println(convertNumToRoman(result2));
             }
-
-            int numbers1 = Integer.valueOf(a1);
-            int numbers2 = Integer.valueOf(a3);
-            if (numbers1 >= 1 && numbers1 <=10 && numbers2 <= 10 && numbers2 >= 1) {
-                System.out.println(calc(sar));
-            } else {
-                System.out.println("Введенные числа не соответствуют условиям калькулятора");
+            if (Arrays.asList(arab).contains(a1) && Arrays.asList(arab).contains(a3)) {
+                int numbers1 = Integer.valueOf(a1);
+                int numbers2 = Integer.valueOf(a3);
+                if (numbers1 >= 1 && numbers1 <= 10 && numbers2 <= 10 && numbers2 >= 1) {
+                    System.out.println(calc(sar));
+                } else {
+                    System.out.println("Введенные числа не соответствуют условиям калькулятора");
+                }
             }
         }
 
