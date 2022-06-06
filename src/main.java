@@ -21,9 +21,7 @@ public  class main {
         }
         if (Arrays.asList(arab).contains(a1) && Arrays.asList(arab).contains(a3)) {
             System.out.println(calc(sar));
-        }
-
-        if (Arrays.asList(rom).contains(a1) && Arrays.asList(rom).contains(a3)) {
+        } else if (Arrays.asList(rom).contains(a1) && Arrays.asList(rom).contains(a3)) {
             String as = romanToNumber(a1);
             String ass = romanToNumber(a3);
             int aa = Integer.parseInt(as);
@@ -45,9 +43,22 @@ public  class main {
             System.out.println(bbb);
         }
 
-        int sl = Integer.valueOf(a1);
-        int sb = Integer.valueOf(a3);
-        if (sl < 1 || sl > 10 || sb < 1 || sb > 10) throw new Exception("Введенные числа не соответствуют условиям калькулятора");
+        if (Arrays.asList(rom).contains(a1) && Arrays.asList(rom).contains(a3)) {
+            String as = romanToNumber(a1);
+            String ass = romanToNumber(a3);
+            int rr = Integer.parseInt(as);
+            int ra = Integer.parseInt(ass);
+            if (rr < 1 || rr > 10 || ra < 1 || ra > 10)
+                throw new Exception("Введенные числа не соответствуют условиям калькулятора");
+        }
+
+            int rt = Integer.parseInt(romanToNumber(a1));
+            int rr = Integer.parseInt(romanToNumber(a3));
+            int sl = Integer.valueOf(rt);
+            int sb = Integer.valueOf(rr);
+            if (sl < 1 || sl > 10 || sb < 1 || sb > 10)
+                throw new Exception("Введенные числа не соответствуют условиям калькулятора");
+
 
     }
 
